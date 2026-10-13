@@ -1,6 +1,10 @@
 const button = document.getElementById('fill');
 const saveButton = document.getElementById('save');
 const status = document.getElementById('status');
+const platformScreen = document.getElementById('platformScreen');
+const fillScreen = document.getElementById('fillScreen');
+const chooseShopee = document.getElementById('chooseShopee');
+const backButton = document.getElementById('back');
 const names = ['ncm', 'invoiceOrigin', 'sameStateCfop', 'csosn', 'diffStateCfop', 'measureUnit', 'pisCofinsCst', 'cest'];
 const defaults = {
   ncm: '39269090',
@@ -31,6 +35,18 @@ async function saveSettings(showMessage = true) {
 
 saveButton.addEventListener('click', () => saveSettings());
 loadSettings();
+
+chooseShopee.addEventListener('click', () => {
+  platformScreen.classList.add('hidden');
+  fillScreen.classList.remove('hidden');
+  status.textContent = 'Shopee selecionada.';
+});
+
+backButton.addEventListener('click', () => {
+  fillScreen.classList.add('hidden');
+  platformScreen.classList.remove('hidden');
+  status.textContent = '';
+});
 
 button.addEventListener('click', async () => {
   button.disabled = true;
