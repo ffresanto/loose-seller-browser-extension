@@ -27,6 +27,7 @@
     label { display: block; margin: 10px 0 4px; color: #d9d0e9; font-size: 11px; font-weight: 700; }
     input { width: 100%; padding: 9px 10px; border: 1px solid var(--border); border-radius: 8px; outline: none; background: #0f0c18; color: var(--text); }
     input:focus { border-color: var(--magenta); box-shadow: 0 0 0 2px #e11d8d22; }
+    select { width: 100%; padding: 9px 10px; border: 1px solid var(--border); border-radius: 8px; outline: none; background: #0f0c18; color: var(--text); }
     .actions { display: flex; gap: 8px; margin-top: 16px; }
     button { flex: 1; border: 0; border-radius: 9px; padding: 10px 8px; background: linear-gradient(135deg, var(--purple), var(--magenta)); color: white; cursor: pointer; font-weight: 750; }
     button.secondary { background: #29223c; color: #ddd3ed; }
@@ -70,6 +71,18 @@
     <label for="pisCofinsCst">PIS e COFINS CST</label><input id="pisCofinsCst" name="pisCofinsCst">
     <label for="cest">CEST</label><input id="cest" name="cest">
       </form>
+      </div>
+    </details>
+    <details class="collapsible">
+      <summary>Informações de envio</summary>
+      <div class="collapsible-content">
+        <label for="weight">Peso (kg)</label><input id="weight" name="weight" inputmode="decimal">
+        <label for="width">Largura do pacote (cm)</label><input id="width" name="width" inputmode="decimal">
+        <label for="length">Comprimento do pacote (cm)</label><input id="length" name="length" inputmode="decimal">
+        <label for="height">Altura do pacote (cm)</label><input id="height" name="height" inputmode="decimal">
+        <label for="preOrder">Sob encomenda</label>
+        <select id="preOrder" name="preOrder"><option value="false">Não</option><option value="true">Sim</option></select>
+        <label for="dts">Dias para postar o pedido</label><input id="dts" name="dts" inputmode="numeric" min="3" max="15">
       </div>
     </details>
     <div class="actions">

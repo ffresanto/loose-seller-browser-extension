@@ -5,7 +5,7 @@ const platformScreen = document.getElementById('platformScreen');
 const fillScreen = document.getElementById('fillScreen');
 const chooseShopee = document.getElementById('chooseShopee');
 const backButton = document.getElementById('back');
-const names = ['ncm', 'invoiceOrigin', 'sameStateCfop', 'csosn', 'diffStateCfop', 'measureUnit', 'pisCofinsCst', 'cest'];
+const names = ['ncm', 'invoiceOrigin', 'sameStateCfop', 'csosn', 'diffStateCfop', 'measureUnit', 'pisCofinsCst', 'cest', 'weight', 'width', 'length', 'height', 'preOrder', 'dts'];
 const defaults = {
   ncm: '39269090',
   invoiceOrigin: '0-Nacional, exceto as indicadas nos códigos 3, 4, 5 e 8',
@@ -14,7 +14,7 @@ const defaults = {
   diffStateCfop: '6102',
   measureUnit: 'UN (UNIDADE)',
   pisCofinsCst: '49-Outras Operações de Saída',
-  cest: '2806100'
+  cest: '2806100', weight: '0,5', width: '16', length: '4', height: '18', preOrder: 'true', dts: '4'
 };
 
 async function loadSettings() {
