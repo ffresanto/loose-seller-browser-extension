@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Preenchedor Fiscal Shopee",
+  "version": "0.1.0",
+  "description": "Preenche os campos fiscais da tela de cadastro de produtos da Shopee.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://seller.shopee.com.br/*"],
+  "action": {
+    "default_title": "Preenchedor Fiscal Shopee",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://seller.shopee.com.br/*"],
+      "js": ["content-shopee.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

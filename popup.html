@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Preenchedor Shopee</title>
+  <style>
+    body { width: 340px; margin: 0; padding: 16px; font: 13px Arial, sans-serif; color: #222; }
+    h1 { font-size: 17px; margin: 0 0 6px; }
+    p { line-height: 1.35; margin: 6px 0 12px; }
+    label { display: block; margin: 8px 0 3px; font-weight: 600; }
+    input { box-sizing: border-box; width: 100%; padding: 7px; border: 1px solid #ccc; border-radius: 5px; }
+    .actions { display: flex; gap: 8px; margin-top: 14px; }
+    button { flex: 1; border: 0; border-radius: 6px; padding: 9px 6px; background: #ee4d2d; color: white; cursor: pointer; font-weight: 600; }
+    button.secondary { background: #777; }
+    button:disabled { opacity: .6; cursor: wait; }
+    #status { min-height: 18px; margin-top: 10px; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Preenchedor Fiscal Shopee</h1>
+  <p>Altere os valores abaixo. Eles ficam salvos no navegador.</p>
+  <form id="settings">
+    <label for="ncm">NCM</label><input id="ncm" name="ncm" maxlength="8">
+    <label for="invoiceOrigin">Origem</label><input id="invoiceOrigin" name="invoiceOrigin">
+    <label for="sameStateCfop">CFOP Venda Mesmo Estado</label><input id="sameStateCfop" name="sameStateCfop">
+    <label for="csosn">CSOSN</label><input id="csosn" name="csosn">
+    <label for="diffStateCfop">CFOP Venda Diferentes Estados</label><input id="diffStateCfop" name="diffStateCfop">
+    <label for="measureUnit">Unidade de Medida</label><input id="measureUnit" name="measureUnit">
+    <label for="pisCofinsCst">PIS e COFINS CST</label><input id="pisCofinsCst" name="pisCofinsCst">
+    <label for="cest">CEST</label><input id="cest" name="cest">
+  </form>
+  <div class="actions">
+    <button id="save" type="button">Salvar valores</button>
+    <button id="fill" type="button" class="secondary">Preencher</button>
+  </div>
+  <div id="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
