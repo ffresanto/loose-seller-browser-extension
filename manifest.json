@@ -1,28 +1,42 @@
 {
   "manifest_version": 3,
   "name": "Loose Seller",
-  "version": "0.1.0",
-  "description": "Preenche os campos fiscais da tela de cadastro de produtos da Shopee.",
+  "version": "1.0.0",
+  "description": "Preenche campos fiscais de produtos na Shopee e no TikTok Shop.",
   "permissions": ["storage"],
-  "host_permissions": ["https://seller.shopee.com.br/*"],
+  "host_permissions": [
+    "https://seller.shopee.com.br/*",
+    "https://seller-br.tiktok.com/*",
+    "https://seller.tiktok.com/*",
+    "https://seller.tiktokglobalshop.com/*"
+  ],
   "action": {
     "default_title": "Loose Seller",
     "default_icon": {
-      "16": "logo.png",
-      "48": "logo.png",
-      "128": "logo.png"
+      "16": "src/presentation/popup/logo.png",
+      "48": "src/presentation/popup/logo.png",
+      "128": "src/presentation/popup/logo.png"
     },
-    "default_popup": "popup.html"
+    "default_popup": "src/presentation/popup/popup.html"
   },
   "icons": {
-    "16": "logo.png",
-    "48": "logo.png",
-    "128": "logo.png"
+    "16": "src/presentation/popup/logo.png",
+    "48": "src/presentation/popup/logo.png",
+    "128": "src/presentation/popup/logo.png"
   },
   "content_scripts": [
     {
       "matches": ["https://seller.shopee.com.br/*"],
-      "js": ["content-shopee.js"],
+      "js": ["src/content/content-shopee.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://seller-br.tiktok.com/*",
+        "https://seller.tiktok.com/*",
+        "https://seller.tiktokglobalshop.com/*"
+      ],
+      "js": ["src/content/content-tiktok.js"],
       "run_at": "document_idle"
     }
   ]
