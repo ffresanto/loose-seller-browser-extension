@@ -1,13 +1,23 @@
 {
   "manifest_version": 3,
-  "name": "Preenchedor Fiscal Shopee",
+  "name": "Loose Seller",
   "version": "0.1.0",
   "description": "Preenche os campos fiscais da tela de cadastro de produtos da Shopee.",
   "permissions": ["storage"],
   "host_permissions": ["https://seller.shopee.com.br/*"],
   "action": {
-    "default_title": "Preenchedor Fiscal Shopee",
+    "default_title": "Loose Seller",
+    "default_icon": {
+      "16": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png"
+    },
     "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
   },
   "content_scripts": [
     {

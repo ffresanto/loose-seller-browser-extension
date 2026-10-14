@@ -2,24 +2,65 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Preenchedor Shopee</title>
+  <title>Loose Seller</title>
   <style>
-    body { width: 340px; margin: 0; padding: 16px; font: 13px Arial, sans-serif; color: #222; }
-    h1 { font-size: 17px; margin: 0 0 6px; }
-    p { line-height: 1.35; margin: 6px 0 12px; }
-    label { display: block; margin: 8px 0 3px; font-weight: 600; }
-    input { box-sizing: border-box; width: 100%; padding: 7px; border: 1px solid #ccc; border-radius: 5px; }
-    .actions { display: flex; gap: 8px; margin-top: 14px; }
-    button { flex: 1; border: 0; border-radius: 6px; padding: 9px 6px; background: #ee4d2d; color: white; cursor: pointer; font-weight: 600; }
-    button.secondary { background: #777; }
+    :root { color-scheme: dark; --bg: #100d1b; --panel: #19142a; --border: #30254a; --muted: #a69bbd; --text: #f8f5ff; --purple: #7c3aed; --magenta: #e11d8d; }
+    * { box-sizing: border-box; }
+    body { width: 370px; margin: 0; padding: 18px; background: radial-gradient(circle at 100% 0, #3b1464 0, transparent 38%), var(--bg); color: var(--text); font: 13px Inter, ui-sans-serif, system-ui, -apple-system, sans-serif; }
+    .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+    .brand img { width: 34px; height: 34px; padding: 5px; object-fit: contain; border-radius: 10px; background: #211936; box-shadow: 0 0 18px #d61ca880; }
+    h1 { font-size: 20px; letter-spacing: -.4px; margin: 0; }
+    .eyebrow { color: #d98dff; font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; }
+    p { color: var(--muted); line-height: 1.45; margin: 5px 0 16px; }
+    .screen.hidden { display: none; }
+    .platform-card { display: flex; align-items: center; gap: 14px; padding: 16px; border: 1px solid var(--border); border-radius: 15px; background: #171225cc; }
+    .platform-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; color: white; background: linear-gradient(135deg, var(--purple), var(--magenta)); font-size: 20px; font-weight: 800; }
+    .platform-card strong { display: block; font-size: 15px; }
+    .platform-card small { display: block; color: var(--muted); margin-top: 3px; }
+    .collapsible { margin-top: 14px; border: 1px solid var(--border); border-radius: 12px; background: #171225cc; overflow: hidden; }
+    .collapsible summary { padding: 13px 14px; cursor: pointer; color: #f0e8ff; font-weight: 750; list-style: none; }
+    .collapsible summary::-webkit-details-marker { display: none; }
+    .collapsible summary::after { content: '+'; float: right; color: #d98dff; font-size: 18px; line-height: 12px; }
+    .collapsible[open] summary::after { content: '−'; }
+    .collapsible summary:hover { background: #211936; }
+    .collapsible-content { padding: 0 14px 14px; }
+    label { display: block; margin: 10px 0 4px; color: #d9d0e9; font-size: 11px; font-weight: 700; }
+    input { width: 100%; padding: 9px 10px; border: 1px solid var(--border); border-radius: 8px; outline: none; background: #0f0c18; color: var(--text); }
+    input:focus { border-color: var(--magenta); box-shadow: 0 0 0 2px #e11d8d22; }
+    .actions { display: flex; gap: 8px; margin-top: 16px; }
+    button { flex: 1; border: 0; border-radius: 9px; padding: 10px 8px; background: linear-gradient(135deg, var(--purple), var(--magenta)); color: white; cursor: pointer; font-weight: 750; }
+    button.secondary { background: #29223c; color: #ddd3ed; }
+    button.ghost { background: transparent; border: 1px solid var(--border); color: var(--muted); }
     button:disabled { opacity: .6; cursor: wait; }
-    #status { min-height: 18px; margin-top: 10px; font-size: 12px; }
+    #status { min-height: 18px; margin-top: 11px; color: #d8b4fe; font-size: 11px; }
+    .credit { margin-top: 14px; color: #817695; font-size: 10px; text-align: center; }
+    .credit a { color: #d98dff; text-decoration: none; }
+    .credit a:hover { color: #f0abfc; text-decoration: underline; }
+    .version { margin-top: 7px; color: #625875; font-size: 10px; text-align: center; }
   </style>
 </head>
 <body>
-  <h1>Preenchedor Fiscal Shopee</h1>
-  <p>Altere os valores abaixo. Eles ficam salvos no navegador.</p>
-  <form id="settings">
+  <div class="brand"><img src="logo.png" alt="Loose Seller"><div><div class="eyebrow">Seller Tools Extension</div><h1>Loose Seller</h1></div></div>
+
+  <section id="platformScreen" class="screen">
+    <div class="eyebrow">Escolha a plataforma</div>
+    <p>Selecione onde você quer preencher os dados do produto.</p>
+    <div class="platform-card">
+      <div class="platform-icon">S</div>
+      <div><strong>Shopee</strong><small>Preenchimento fiscal automático</small></div>
+    </div>
+    <div class="actions"><button id="chooseShopee" type="button">Continuar com Shopee</button></div>
+    <div class="credit">Desenvolvido por <a href="https://www.linkedin.com/in/franccesco-felipe-rodrigues" target="_blank" rel="noreferrer">Franccesco Felipe</a></div>
+    <div class="version">Versão 0.1.0</div>
+  </section>
+
+  <section id="fillScreen" class="screen hidden">
+    <div class="eyebrow">Plataforma selecionada · Shopee</div>
+    <p>Configure os valores e preencha a segunda etapa do cadastro.</p>
+    <details class="collapsible">
+      <summary>Informações fiscais</summary>
+      <div class="collapsible-content">
+      <form id="settings">
     <label for="ncm">NCM</label><input id="ncm" name="ncm" maxlength="8">
     <label for="invoiceOrigin">Origem</label><input id="invoiceOrigin" name="invoiceOrigin">
     <label for="sameStateCfop">CFOP Venda Mesmo Estado</label><input id="sameStateCfop" name="sameStateCfop">
@@ -28,10 +69,14 @@
     <label for="measureUnit">Unidade de Medida</label><input id="measureUnit" name="measureUnit">
     <label for="pisCofinsCst">PIS e COFINS CST</label><input id="pisCofinsCst" name="pisCofinsCst">
     <label for="cest">CEST</label><input id="cest" name="cest">
-  </form>
-  <div class="actions">
-    <button id="save" type="button">Salvar valores</button>
-    <button id="fill" type="button" class="secondary">Preencher</button>
+      </form>
+      </div>
+    </details>
+    <div class="actions">
+      <button id="save" type="button" class="secondary">Salvar valores</button>
+      <button id="fill" type="button">Preencher agora</button>
+    </div>
+    <div class="actions"><button id="back" type="button" class="ghost">Trocar plataforma</button></div>
   </div>
   <div id="status"></div>
   <script src="popup.js"></script>

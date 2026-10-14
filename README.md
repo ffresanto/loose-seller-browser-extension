@@ -1,4 +1,4 @@
-# Preenchedor Fiscal Shopee
+# Loose Seller
 
 Extensão local para Chrome/Edge que preenche os campos fiscais da segunda etapa do cadastro de produto.
 
@@ -9,7 +9,7 @@ Extensão local para Chrome/Edge que preenche os campos fiscais da segunda etapa
 3. Clique em **Carregar sem compactação**.
 4. Selecione esta pasta inteira: `shopee-preenchedor`.
 5. Abra o Seller Center, entre no cadastro de produto e avance para a segunda etapa.
-6. Clique no ícone de extensões e abra **Preenchedor Fiscal Shopee**.
+6. Clique no ícone de extensões e abra **Loose Seller**.
 7. Edite os valores desejados e clique em **Salvar valores**.
 8. Na segunda etapa do cadastro, clique em **Preencher**.
 
@@ -20,3 +20,5 @@ Extensão local para Chrome/Edge que preenche os campos fiscais da segunda etapa
 - Os valores alterados na extensão são salvos no armazenamento local do navegador e permanecem após fechar e abrir o Chrome/Edge.
 - Se a Shopee alterar o layout ou os identificadores dos campos, será necessário atualizar a extensão.
 - Os valores fiscais devem ser confirmados com o contador responsável pela empresa.
+
+Desenvolvido por [Franccesco Felipe](https://www.linkedin.com/in/franccesco-felipe-rodrigues).
