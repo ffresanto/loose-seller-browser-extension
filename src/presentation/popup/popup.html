@@ -51,12 +51,17 @@
       <div><strong>Shopee</strong><small>Preenchimento campos automático</small></div>
     </div>
     <div class="actions"><button id="chooseShopee" type="button">Continuar com Shopee</button></div>
+    <div class="platform-card" style="margin-top: 10px;">
+      <div class="platform-icon">T</div>
+      <div><strong>TikTok Shop</strong><small>Preenchimento campos automático</small></div>
+    </div>
+    <div class="actions"><button id="chooseTiktok" type="button">Continuar com TikTok</button></div>
     <div class="credit">Desenvolvido por <a href="https://www.linkedin.com/in/franccesco-felipe-rodrigues" target="_blank" rel="noreferrer">Franccesco Felipe</a></div>
-    <div class="version">Versão 0.1.0</div>
+    <div class="version">Versão 1.0.0</div>
   </section>
 
   <section id="fillScreen" class="screen hidden">
-    <div class="eyebrow">Plataforma selecionada · Shopee</div>
+    <div id="platformTitle" class="eyebrow">Plataforma selecionada · Shopee</div>
     <p>Configure os valores e preencha a segunda etapa do cadastro.</p>
     <details class="collapsible">
       <summary>Informações fiscais</summary>
@@ -73,16 +78,18 @@
       </form>
       </div>
     </details>
-    <details class="collapsible">
+    <details id="shippingSettings" class="collapsible">
       <summary>Informações de envio</summary>
       <div class="collapsible-content">
-        <label for="weight">Peso (kg)</label><input id="weight" name="weight" inputmode="decimal">
+        <label id="weightLabel" for="weight">Peso (kg)</label><input id="weight" name="weight" inputmode="decimal">
         <label for="width">Largura do pacote (cm)</label><input id="width" name="width" inputmode="decimal">
         <label for="length">Comprimento do pacote (cm)</label><input id="length" name="length" inputmode="decimal">
         <label for="height">Altura do pacote (cm)</label><input id="height" name="height" inputmode="decimal">
-        <label for="preOrder">Sob encomenda</label>
-        <select id="preOrder" name="preOrder"><option value="false">Não</option><option value="true">Sim</option></select>
-        <label for="dts">Dias para postar o pedido</label><input id="dts" name="dts" inputmode="numeric" min="3" max="15">
+        <div id="madeToOrderSettings">
+          <label for="preOrder">Sob encomenda</label>
+          <select id="preOrder" name="preOrder"><option value="false">Não</option><option value="true">Sim</option></select>
+          <label for="dts">Dias para postar o pedido</label><input id="dts" name="dts" inputmode="numeric" min="3" max="15">
+        </div>
       </div>
     </details>
     <div class="actions">
@@ -92,6 +99,6 @@
     <div class="actions"><button id="back" type="button" class="ghost">Trocar plataforma</button></div>
   </div>
   <div id="status"></div>
-  <script src="popup.js"></script>
+  <script type="module" src="popup.js"></script>
 </body>
 </html>
